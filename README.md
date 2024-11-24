@@ -1,4 +1,4 @@
-This is the code implementation for the paper **"From Majority to Minority: A Diffusion-based Augmentation for Underrepresented Groups in Skin Lesion Analysis"**, presented at the @[MICCAI 2024 Workshops - ISIC Skin Image Analysis Workshop](https://workshop.isic-archive.com/2024/). Our work received the **Honorable Mention Award**!
+This is the code implementation for the paper [**"From Majority to Minority: A Diffusion-based Augmentation for Underrepresented Groups in Skin Lesion Analysis"**](https://workshop.isic-archive.com/2024/paper_wang.pdf), presented at the @[MICCAI 2024 Workshops - ISIC Skin Image Analysis Workshop](https://workshop.isic-archive.com/2024/). Our work received the **Honorable Mention Award**!
 
 
 
