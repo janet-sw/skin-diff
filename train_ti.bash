@@ -3,7 +3,7 @@
 SEED=0 # split seed; you can use different seeds by using skleans train_test_split with the Fitzpatrick17k's metadata 
 MODEL_NAME="stabilityai/stable-diffusion-2-1-base"
 DATA_DIR="/data/finalfitz17k" # path to the images
-DATA_SPLIT="/ssd/janet/skin-diff/data_splits/train_light_dark_seed_to_dark_seed=0.csv" # path to the data split (e.g., training data with dark-skinned type)
+DATA_SPLIT="./data_splits/train_light_dark_seed_to_dark_seed=0.csv" # path to the data split (e.g., training data with dark-skinned type)
 OUTPUT_DIR_BASE="output/ti/light_only_to_dark_demo/" # path to the output model
 
 

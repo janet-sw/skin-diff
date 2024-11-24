@@ -146,7 +146,7 @@ def custom_load(
         real_train_dir='',
         syn_train_dir='',
         val_dir='',
-        real_image_dir='/ssd/janet/fitz_aug_final_version/data/finalfitz17k',
+        real_image_dir='./data/finalfitz17k', 
         syn_image_dir='',
         source=None):
     val = pd.read_csv(val_dir)
