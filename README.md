@@ -2,7 +2,7 @@ This is the code implementation for the paper **"From Majority to Minority: A Di
 
 
 
-#### Dependencies
+### Dependencies
 
 We use Hugging Face's `diffusers` library to train a Stable Diffusion model via **Textual Inversion** and **LoRA**. Before running the script, ensure the library is installed from source:
 
@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 
 
-#### Concept Discovery via Textual Inversion
+### Concept Discovery via Textual Inversion
 
 To find suitable textual embedding for each condition using Textual Inversion, run 
 
@@ -37,7 +37,7 @@ You can verify if the training is successful by generating images with the new t
 
 
 
-#### Fine-grained Detail Enhancement with LoRA
+### Fine-grained Detail Enhancement with LoRA
 
 To fine-tune a Stable Diffusion model with the new tokens using LoRA, run the notebook **train_ti_lora.ipynb**. You can prepare the dataset based on image type (flexible or non-flexible subset) and skin type, as shown in the notebook (e.g., `data/flexible/6/{disease_name}`), to load data with a JSON file. Alternatively, You can modify `train_lora.py` to load the dataset using a CSV file.
 
@@ -47,7 +47,7 @@ For more details, see https://huggingface.co/docs/diffusers/training/lora
 
 
 
-#### Image Generation 
+### Image Generation 
 
 To generate images, please run the notebook **ti_lora_inference.ipynb**. In our experiment, we used the `StableDiffusionImg2ImgPipeline` from `diffusers`. Key parameters to tune include: 
 
@@ -60,7 +60,7 @@ Detailed explanations for these parameters are available in the [Hugging Face AP
 
 
 
-#### Classifier Training
+### Classifier Training
 
 We adapted the classifier training code from [this repository](https://github.com/mattgroh/fitzpatrick17k). To train the classifier, run
 
@@ -74,7 +74,7 @@ Here, `30` refers to the number of epochs, and `full` specifies the full dataset
 
 
 
-#### Cite
+### Cite
 
 If you find this code implementation helpful, please consider citing our work
 
