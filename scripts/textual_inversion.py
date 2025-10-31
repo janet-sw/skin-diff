@@ -433,6 +433,11 @@ def parse_args():
         type=str,
         default=None,
     )
+    parser.add_argument(
+        "--class_name",
+        default=None,
+        help="class name",
+    )
 
     args = parser.parse_args()
     env_local_rank = int(os.environ.get("LOCAL_RANK", -1))
@@ -524,6 +529,7 @@ class TextualInversionDataset(Dataset):
         data_root,
         data_split,
         tokenizer,
+        condition,
         learnable_property="object",  # [object, style]
         size=512,
         repeats=10,
@@ -534,7 +540,8 @@ class TextualInversionDataset(Dataset):
         center_crop=False,
     ):
         self.data_root = data_root
-        self.data_split = pd.read_csv(data_split)
+        self.df = pd.read_csv(data_split)
+        self.df = self.df[self.df['label'] == condition.replace('_',' ')]
         self.tokenizer = tokenizer
         self.learnable_property = learnable_property
         self.size = size
@@ -543,7 +550,7 @@ class TextualInversionDataset(Dataset):
         self.flip_p = flip_p
 
         # self.image_paths = [os.path.join(self.data_root, file_path) for file_path in os.listdir(self.data_root)]
-        self.image_paths = [(os.path.join(self.data_root, file_path)+ '.jpg') for file_path in self.data_split['md5hash']]
+        self.image_paths = [(os.path.join(self.data_root, file_path)+ '.jpg') for file_path in self.df['md5hash']]
         self.num_images = len(self.image_paths)
         self._length = self.num_images
 
@@ -773,6 +780,7 @@ def main():
         data_root=args.train_data_dir,
         data_split=args.fitz_split_csv,
         tokenizer=tokenizer,
+        condition=args.class_name,
         size=args.resolution,
         placeholder_token=(" ".join(tokenizer.convert_ids_to_tokens(placeholder_token_ids))),
         repeats=args.repeats,
