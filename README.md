@@ -2,7 +2,9 @@ This is the code implementation for the paper [**"From Majority to Minority: A D
 
 
 
-### Dependencies
+### 0. Dependencies
+
+---
 
 We use Hugging Face's `diffusers` library to train a Stable Diffusion model via **Textual Inversion** and **LoRA**. Before running the script, execute the following lines to install necessary dependencies:
 
@@ -14,7 +16,9 @@ pip install -r requirements.txt
 
 
 
-### Concept Discovery via Textual Inversion
+### 1. Concept Discovery via Textual Inversion
+
+---
 
 To find suitable textual embedding for each condition using Textual Inversion, run the first half of the notebook `/notebooks/finetune.ipynb`.
 
@@ -22,7 +26,9 @@ You can verify if the training is successful by generating images with the new t
 
 
 
-### Fine-grained Detail Enhancement with LoRA
+### 2. Fine-grained Detail Enhancement with LoRA
+
+---
 
 To fine-tune a Stable Diffusion model with the new tokens using LoRA, run the second half of the notebook `/notebooks/finetune.ipynb`. Here, we use a json file to manage the training data for LoRA.
 
@@ -30,7 +36,9 @@ For more details, see https://huggingface.co/docs/diffusers/training/lora
 
 
 
-### Image Generation 
+### 3. Image Generation
+
+---
 
 To generate images, please run the notebook `/notebooks/inference.ipynb`. In our experiment, we used the `StableDiffusionImg2ImgPipeline` from `diffusers`. Key parameters to tune include: 
 
@@ -43,7 +51,9 @@ Detailed explanations for these parameters are available in the [Hugging Face AP
 
 
 
-### Classifier Training
+### 4. Classifier Training
+
+---
 
 We adapted the classifier training code from [this repository](https://github.com/mattgroh/fitzpatrick17k). To train the classifier, run
 
